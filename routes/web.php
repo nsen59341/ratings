@@ -33,3 +33,6 @@ Route::get('/logout', function() {
     Auth::logout();
     return redirect('/login');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
