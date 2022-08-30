@@ -67,7 +67,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => !empty($DATABASE_URL['host']) ? $DATABASE_URL['host'] : '',
+            'url' => env('DATABASE_URL'),
             'host' => !empty($DATABASE_URL['host']) ? $DATABASE_URL['host'] : '',
             'port' => !empty($DATABASE_URL['port']) ? $DATABASE_URL['port'] : '',
             'database' => !empty(ltrim($DATABASE_URL['path'], '/')) ? ltrim($DATABASE_URL['path'], '/') : '',
@@ -75,9 +75,9 @@ return [
             'password' => !empty($DATABASE_URL['pass']) ? $DATABASE_URL['pass'] : '',
             'charset' => 'utf8',
             'prefix' => '',
-            // 'prefix_indexes' => true,
+            'prefix_indexes' => true,
             'schema' => 'public',
-            'sslmode' => 'require',
+            'sslmode' => 'prefer',
         ],
 
         'sqlsrv' => [
