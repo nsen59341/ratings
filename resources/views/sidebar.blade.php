@@ -16,17 +16,17 @@
     </a>
     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="/reviews">
+        <a href="{{ url('reviews') }}">
           <i class="bi bi-circle"></i><span>All</span>
         </a>
       </li>
       <li>
-        <a href="/reviews">
+        <a href="{{ url('reviews?publ=yes') }}">
           <i class="bi bi-circle"></i><span>Published</span>
         </a>
       </li>
       <li>
-        <a href="/reviews">
+        <a href="{{ url('reviews?publ=no') }}">
           <i class="bi bi-circle"></i><span>Unpublished</span>
         </a>
       </li>

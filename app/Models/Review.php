@@ -16,6 +16,6 @@ class Review extends Model
     protected $fillable = ['rating_points', 'reviews', 'created_at', 'updated_at', 'deleted_at' ,'user_id'];
 
     public function user(){
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Review;
 
+
 class ReviewController extends Controller
 {
     /**
@@ -13,11 +14,24 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        $reviews_arr = Review::all();
         // dd(Review::find(1)->user->name);
-        return view('reviews', ['reviews'=>$reviews_arr]);
+        // echo("Published ".$_GET['publ']);
+        if(!empty($_GET['publ']) AND ($_GET['publ']=='yes' OR $_GET['publ']=='no')){
+            // echo 1;
+            $publ = $_GET['publ']=='yes' ? 1 : 0;
+            $reviews_arr = Review::where('deleted_at', NULL)->where('is_published', $publ)->get();
+            // dd($reviews_arr);
+        }
+        else{
+            // echo 0;
+            $reviews_arr = Review::where('deleted_at', NULL)->get();
+        }
+        // dd($reviews_arr);
+        // $reviews_arr = !empty($_GET['publ']) ? Review::where('is_published',intval($_GET['publ']))->get() : Review::all() ;
+        return view('reviews', ['reviews' => $reviews_arr]);
     }
 
     /**
@@ -60,7 +74,9 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $review = Review::find($id);
+        // dd($review);
+        return view('edit-review', ['review' => $review]);
     }
 
     /**
@@ -72,7 +88,9 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->input('statmnt'));
+        Review::where('id',$id)->update(['review_statements' => $request->input('statmnt')]);
+        return redirect('/reviews');
     }
 
     /**
@@ -83,6 +101,10 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // echo "Delete ".$id;
+        // echo "Delete ".$review;
+        Review::find($id)->delete();
+        return redirect('/reviews');
     }
+
 }
