@@ -75,9 +75,9 @@ return [
             'password' => !empty($DATABASE_URL['pass']) ? $DATABASE_URL['pass'] : '',
             'charset' => 'utf8',
             'prefix' => '',
-            'prefix_indexes' => true,
+            // 'prefix_indexes' => true,
             'schema' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => 'require',
         ],
 
         'sqlsrv' => [
