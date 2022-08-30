@@ -1,6 +1,6 @@
 <?php
 
-$DATABASE_URL=parse_url('postgres://anttnutjfzhabq:7572eecc27d7865306eb247dfc002a5b18761ce2f3ca6f4f19e4eba578084d83@ec2-54-204-241-136.compute-1.amazonaws.com:5432/dbhvdj6o9bc1hj');
+// $DATABASE_URL=parse_url('postgres://anttnutjfzhabq:7572eecc27d7865306eb247dfc002a5b18761ce2f3ca6f4f19e4eba578084d83@ec2-54-204-241-136.compute-1.amazonaws.com:5432/dbhvdj6o9bc1hj');
 
 use Illuminate\Support\Str;
 
@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,12 +67,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => $DATABASE_URL['host'],
-            'host' => $DATABASE_URL['host'],
-            'port' => $DATABASE_URL['port'],
-            'database' => ltrim($DATABASE_URL['path'], '/'),
-            'username' => $DATABASE_URL['user'],
-            'password' => $DATABASE_URL['pass'],
+            'url' => !empty($DATABASE_URL['host']) ? $DATABASE_URL['host'] : '',
+            'host' => !empty($DATABASE_URL['host']) ? $DATABASE_URL['host'] : '',
+            'port' => !empty($DATABASE_URL['port']) ? $DATABASE_URL['port'] : '',
+            'database' => !empty(ltrim($DATABASE_URL['path'], '/')) ? ltrim($DATABASE_URL['path'], '/') : '',
+            'username' => !empty($DATABASE_URL['user']) ? $DATABASE_URL['user'] : '',
+            'password' => !empty($DATABASE_URL['pass']) ? $DATABASE_URL['pass'] : '',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
