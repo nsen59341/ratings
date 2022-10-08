@@ -28,10 +28,10 @@
               {!! $review->review_statements !!}
               <br><br>
               <a href="{{url('reviews/'.$review->id.'/edit')}}" class="card-link">Edit</a>
-              <form action="{{ route('reviews.destroy', $review->id) }}" method="POST">
+              <form action="{{ route('reviews.destroy', $review->id) }}" id="del-form-{{$review->id}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type='submit' class="card-link">Delete</button>
+                <button type='button' class="card-link" onclick="del_confirm({{$review->id}})">Delete</button>
               </form>
             </div>
           </div><!-- End Default Card -->
@@ -40,6 +40,18 @@
         @endif
 
       </div>
+
+      <script>
+        function del_confirm(id){
+          var is_confrm = confirm("Are you sure you want to delete the post?");
+
+          if( is_confrm == true ){
+            document.getElementById("del-form-"+id).submit();
+          }
+
+        }
+      </script>
+
     </section>
 
 </main><!-- End #main -->

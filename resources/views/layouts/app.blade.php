@@ -39,7 +39,7 @@
 
 <body>
 
-  @include('header')
+  <!-- @include('header') -->
 
   @include('sidebar')
   

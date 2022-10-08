@@ -12,5 +12,5 @@ class Rating extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
     
-    protected $fillable = ['rating_points', 'reviews', 'created_at', 'updated_at', 'deleted_at' ,'user_id'];
+    protected $fillable = ['rating_points', 'reviews', 'created_at', 'updated_at', 'deleted_at' , 'product_id', 'user_id'];
 }

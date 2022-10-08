@@ -31,7 +31,21 @@
         </a>
       </li>
     </ul>
-  </li><!-- End Components Nav -->
+  </li>
+  
+  <li class="nav-item">
+    <a class="nav-link " href="/customers">
+      <i class="bi bi-grid"></i>
+      <span>Customers</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link " href="/products">
+      <i class="bi bi-grid"></i>
+      <span>Products</span>
+    </a>
+  </li>
 
   <li class="nav-item">
     <a class="nav-link " href="/settings">
