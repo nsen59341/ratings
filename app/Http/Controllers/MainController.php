@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Products;
 
+use App\Models\Customers;
+
 class MainController extends Controller
 {
     public function index()
@@ -18,6 +20,17 @@ class MainController extends Controller
                 'product_id' => $product['id'],
                 'product_name' => $product['title'],
                 'product_images' => json_encode($product['images'], 1),
+            ]);
+        }
+
+        $customers = auth()->user()->api()->rest('GET', '/admin/api/2022-07/customers.json')['body']['container']['customers'];
+
+        foreach($customers as $customer)
+        {
+            Customers::firstOrCreate([
+                'customer_id' => $customer['id'],
+                'customer_name' => $customer['first_name'].' '.$customer['last_name'],
+                'customer_email' => $customer['email'],
             ]);
         }
 

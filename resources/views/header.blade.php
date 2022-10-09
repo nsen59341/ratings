@@ -2,6 +2,9 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
 <div class="d-flex align-items-center justify-content-between">
+  <a href="{{ URL::previous() }}">
+    <i class="bi bi-chevron-left ms-auto"></i>
+  </a>
   <a href="/" class="logo d-flex align-items-center">
     <img src="{{ asset('images/logo.png') }}" alt="">
     <span class="d-none d-lg-block">Give a Review</span>
@@ -24,9 +27,8 @@
         <i class="bi bi-search"></i>
       </a>
     </li><!-- End Search Icon-->
-
+    <li><a href="{{ Request::url() }}"><i class="bi bi-arrow-clockwise"></i></a></li>
     <li class="nav-item dropdown">
-
       <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
         <i class="bi bi-bell"></i>
         <span class="badge bg-primary badge-number">4</span>

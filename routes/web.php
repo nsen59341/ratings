@@ -36,9 +36,12 @@ Route::get('/settings', function () {
 
 Route::get('/', [MainController::class, 'index'])->middleware(['auth.shopify'])->name('home');
 
-Route::get('/customers', [CustomerController::class, 'getcustomers'])->middleware(['auth.shopify'])->name('home');
+Route::get('/customers', [CustomerController::class, 'getcustomers'])->middleware(['auth.shopify']);
 
-Route::get('/products', [ProductsController::class, 'getproducts'])->middleware(['auth.shopify'])->name('home');
+Route::get('/products', [ProductsController::class, 'getproducts'])->middleware(['auth.shopify']);
+
+Route::post('/ask-review', [CustomerController::class, 'sendemail'])->middleware(['auth.shopify']);
+
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth.shopify'])->name('home');
 

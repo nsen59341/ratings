@@ -58,6 +58,7 @@
   <script src="{{ asset('vendor/simple-datatables/simple-datatables.js') }}"></script>
   <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
