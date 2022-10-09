@@ -39,19 +39,4 @@ class HomeController extends Controller
         return view('welcome');
     }
 
-    function shopify_auth(Request $request)
-    {
-        $shop_url = $request->input('shop-url');
-
-        $api_key = "a718ba29d8d0d181666d046d2a103d25";
-        $scopes = "read_orders,write_products";
-        $redirect_uri = "/authenticate/token";
-
-        $install_url = $shop_url . "/admin/oauth/authorize?client_id=" . $api_key . "&scope=" . $scopes . "&redirect_uri=" . urlencode($redirect_uri);
-
-        // Redirect
-        return redirect($install_url);
-
-    }
-
 }

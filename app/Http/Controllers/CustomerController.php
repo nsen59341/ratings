@@ -42,11 +42,6 @@ class CustomerController extends Controller
             'is_review_sent' => 1
         ]);
 
-        // DB::table('customers')
-        //     ->where('customer_email',$cust_email)
-        //     ->update(['is_review_sent' => 1]);
-        
-   
         $request->session()->flash('status', 'Request has been sent');
 
         return back();

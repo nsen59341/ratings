@@ -69,7 +69,7 @@
       class="fixed bottom-3 right-3 py-2 px-4 w-25 rounded-xl border border-dark bg-light text-sm">
         <p>{{ session('status') }}</p>
       </div>
-      @endif
+    @endif
 
   </main>
   
